@@ -87,7 +87,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <link rel="dns-prefetch" href="//images.unsplash.com" />
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
         <link rel="preload" href="/favicon.ico" as="image" />
+        <link rel="preload" href="/images/default-dog.webp" as="image" />
+        <link rel="preload" href="/images/logos/logo-petyears-new.webp" as="image" />
       </head>
       <body>
         <Layout>

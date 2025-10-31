@@ -1,11 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import DogYearsCalculator from '../../components/DogYearsCalculator';
-import Toolbox from '../../components/Toolbox';
-import FAQAccordion from '../../components/FAQAccordion';
 import styles from '../../styles/DogYearsPage.module.css';
+
+// Lazy load non-critical components
+const Toolbox = lazy(() => import('../../components/Toolbox'));
+const FAQAccordion = lazy(() => import('../../components/FAQAccordion'));
 
 export default function DogYearsPage() {
   const [showToolbox, setShowToolbox] = useState(false);
@@ -61,7 +63,9 @@ export default function DogYearsPage() {
               transition={{ duration: 0.8 }}
               className={styles.toolboxSection}
             >
-              <Toolbox />
+              <Suspense fallback={<div className="text-center py-8">Loading...</div>}>
+                <Toolbox />
+              </Suspense>
             </motion.section>
           )}
         </AnimatePresence>
@@ -128,20 +132,22 @@ export default function DogYearsPage() {
           {/* Frequently Asked Questions */}
           <article className={styles.article}>
             <h2 className={styles.articleTitle}>Frequently Asked Questions</h2>
-            <FAQAccordion items={[
-              {
-                question: "Why do dogs age faster than humans?",
-                answer: "Dogs reach maturity much faster than humans. A 1-year-old dog is roughly equivalent to a 15-year-old human in terms of physical and mental development. This accelerated aging continues throughout their shorter lifespan."
-              },
-              {
-                question: "Is the calculator accurate for mixed breeds?",
-                answer: "Our calculator provides a general estimate based on average dog aging patterns. Mixed breeds may age differently depending on their dominant genetic traits. For the most accurate assessment, consult with your veterinarian."
-              },
-              {
-                question: "How often should I recalculate my dog's age?",
-                answer: "You can recalculate anytime! As your dog ages, their human equivalent age will change. It's especially useful to track this as they enter their senior years (typically 7+ dog years) to adjust their care routine."
-              }
-            ]} />
+            <Suspense fallback={<div className="text-center py-4">Loading FAQ...</div>}>
+              <FAQAccordion items={[
+                {
+                  question: "Why do dogs age faster than humans?",
+                  answer: "Dogs reach maturity much faster than humans. A 1-year-old dog is roughly equivalent to a 15-year-old human in terms of physical and mental development. This accelerated aging continues throughout their shorter lifespan."
+                },
+                {
+                  question: "Is the calculator accurate for mixed breeds?",
+                  answer: "Our calculator provides a general estimate based on average dog aging patterns. Mixed breeds may age differently depending on their dominant genetic traits. For the most accurate assessment, consult with your veterinarian."
+                },
+                {
+                  question: "How often should I recalculate my dog's age?",
+                  answer: "You can recalculate anytime! As your dog ages, their human equivalent age will change. It's especially useful to track this as they enter their senior years (typically 7+ dog years) to adjust their care routine."
+                }
+              ]} />
+            </Suspense>
           </article>
         </motion.section>
       </div>
