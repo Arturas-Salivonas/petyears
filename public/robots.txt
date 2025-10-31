@@ -9,4 +9,3 @@ Host: https://petyears.net
 
 # Sitemaps
 Sitemap: https://petyears.net/sitemap.xml
-Sitemap: https://petyears.net/server-sitemap.xml

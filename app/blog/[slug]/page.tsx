@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getPostData, getAllPostSlugs, getSortedPostsData } from '../../../lib/posts';
 import { Metadata } from 'next';
+import { ArticleJsonLd } from 'next-seo';
 import Breadcrumb from '../../../components/Breadcrumb';
 import RelatedPosts from '../../../components/RelatedPosts';
 import styles from '../../../styles/BlogPost.module.css';
@@ -63,64 +64,12 @@ export default async function Post({ params }: PostPageProps) {
 
     return (
       <>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Article",
-              "headline": post.title,
-              "description": post.description,
-              "image": "https://petyears.net/og-image.jpg",
-              "datePublished": post.date,
-              "dateModified": post.date,
-              "author": {
-                "@type": "Organization",
-                "name": "PetYears.net"
-              },
-              "publisher": {
-                "@type": "Organization",
-                "name": "PetYears.net",
-                "logo": {
-                  "@type": "ImageObject",
-                  "url": "https://petyears.net/logo.png"
-                }
-              },
-              "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": `https://petyears.net/blog/${post.slug}`
-              }
-            })
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": "https://petyears.net"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "Blog",
-                  "item": "https://petyears.net/blog"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 3,
-                  "name": post.title,
-                  "item": `https://petyears.net/blog/${post.slug}`
-                }
-              ]
-            })
-          }}
+        <ArticleJsonLd
+          headline={post.title}
+          description={post.description}
+          image={`https://petyears.net/og/${post.slug}.png`}
+          datePublished={post.date}
+          url={`https://petyears.net/blog/${post.slug}`}
         />
         <div className={styles.container}>
           <Breadcrumb

@@ -5,7 +5,9 @@ module.exports = {
   sitemapSize: 7000,
   changefreq: 'weekly',
   priority: 0.7,
-  exclude: ['/server-sitemap.xml'],
+  // Remove the sitemap index and generate a single sitemap
+  generateIndexSitemap: false,
+  exclude: [],
   robotsTxtOptions: {
     policies: [
       {
@@ -14,17 +16,34 @@ module.exports = {
         disallow: ['/api/', '/_next/'],
       },
     ],
-    additionalSitemaps: [
-      `${process.env.SITE_URL || 'https://petyears.net'}/server-sitemap.xml`,
-    ],
   },
   transform: async (config, path) => {
     // Custom transform for blog posts
-    if (path.includes('/blog/')) {
+    if (path.includes('/blog/') && !path.endsWith('/blog')) {
       return {
         loc: path,
         changefreq: 'monthly',
         priority: 0.8,
+        lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
+      };
+    }
+
+    // Homepage gets higher priority
+    if (path === '/') {
+      return {
+        loc: path,
+        changefreq: 'weekly',
+        priority: 1.0,
+        lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
+      };
+    }
+
+    // Calculator pages get higher priority
+    if (path.includes('/dog-years') || path.includes('/cat-years')) {
+      return {
+        loc: path,
+        changefreq: 'weekly',
+        priority: 0.9,
         lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
       };
     }
