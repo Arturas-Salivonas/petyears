@@ -3,6 +3,7 @@ import { Inter, Poppins } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import Layout from "../components/Layout";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const inter = Inter({
   variable: "--font-inter",
@@ -93,6 +94,7 @@ export default function RootLayout({
           {children}
         </Layout>
         <Analytics />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-FLFS9989L0"} />
       </body>
     </html>
   );

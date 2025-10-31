@@ -45,12 +45,12 @@ export default function Home() {
           <Link href="/dog-years" className="block group">
             <div className={styles.calculatorCard}>
               <div className={styles.calculatorCardHeader}>
-                <h2 className={styles.calculatorCardTitle}>Dog Years</h2>
+                <h2 className={styles.calculatorCardTitle}>Cat Years</h2>
                 <motion.div
-                  whileHover={{ rotate: 10 }}
+                  whileHover={{ rotate: -10 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  <img alt="Dog avatar" className={styles.breedImage} src="/images/default-dog.webp" />
+                  <img alt="Cat avatar" className={styles.calculatorCardIcon} src="/images/default-dog.webp" />
                 </motion.div>
               </div>
               <p className={styles.calculatorCardDescription}>Calculate how old your dog is in human years.</p>
@@ -74,12 +74,7 @@ export default function Home() {
                   whileHover={{ rotate: -10 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                 <motion.div
-                  whileHover={{ rotate: 10 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  <img alt="Dog avatar" className={styles.breedImage} src="/images/default-dog.webp" />
-                </motion.div>
+                  <img alt="Cat avatar" className={styles.calculatorCardIcon} src="/images/default-dog.webp" />
                 </motion.div>
               </div>
               <p className={styles.calculatorCardDescription}>Calculate how old your cat is in human years.</p>
