@@ -1,0 +1,38 @@
+.container {
+  max-width: 72rem; /* 6xl */
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.content {
+  max-width: 3xl;
+  margin: 0 auto;
+}
+
+.content p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.content h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.content ul {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.content li {
+  margin-bottom: 0.5rem;
+}

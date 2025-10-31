@@ -1,26 +1,46 @@
-@import "tailwindcss";
+@import "./../styles/base.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #ffeee8; /* Soft creamy beige background */
+  --foreground: #2E2E2E; /* Soft dark gray for readable text */
+  --primary: #ff3c3c; /* Warm red/coral for accents */
+  --secondary: #6DBE45; /* Fresh green for buttons and highlights */
+  --muted-text: #595959; /* Subtext, descriptions */
+  --white: #FFFFFF; /* Cards, sections, backgrounds */
+  --paw-gray: #E6E6E6; /* Decorative neutral tone */
 }
 
 body {
-  background: var(--background);
+  /* background: var(--background); */
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter);
+
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: rgb(147 204 110 / 30%)
+
+}
+a{
+  text-decoration: none;
+}
+/* Custom utility classes for the new design */
+.rounded-pet {
+  border-radius: var(--border-radius-pet);
+}
+
+.shadow-pet {
+  box-shadow: var(--shadow-pet);
+}
+
+/* Typography utilities */
+.font-heading {
+  font-family: var(--font-poppins);
+}
+
+.font-accent {
+  font-family: var(--font-poppins);
+  font-weight: 600;
 }

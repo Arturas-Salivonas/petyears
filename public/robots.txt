@@ -1,0 +1,12 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+# Host
+Host: https://petyears.net
+
+# Sitemaps
+Sitemap: https://petyears.net/sitemap.xml
+Sitemap: https://petyears.net/server-sitemap.xml

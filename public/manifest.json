@@ -1,0 +1,43 @@
+{
+  "name": "PetYears.net - Pet Age Calculator",
+  "short_name": "PetYears",
+  "description": "Convert your pet's age to human years instantly. Simple, fast, and accurate calculator for dogs and cats.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFDF9",
+  "theme_color": "#FEEBC8",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "categories": ["utilities", "lifestyle"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dog Years Calculator",
+      "short_name": "Dog Calculator",
+      "description": "Convert dog years to human years",
+      "url": "/dog-years",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Cat Years Calculator",
+      "short_name": "Cat Calculator",
+      "description": "Convert cat years to human years",
+      "url": "/cat-years",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

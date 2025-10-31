@@ -1,0 +1,193 @@
+/* Toolbox.module.css */
+
+
+
+.header {
+  width: 100%;
+  padding: 1.5rem;
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.header:hover {
+  background: color-mix(in srgb, var(--primary) 10%, white);
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.headerIcon {
+  font-size: 1.5rem;
+}
+
+.headerTitle {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--foreground);
+  font-family: var(--font-poppins);
+}
+
+.expandIcon {
+  color: var(--primary);
+  font-size: 1.25rem;
+  transition: transform var(--transition-normal);
+}
+
+.expandIcon.expanded {
+  transform: rotate(180deg);
+}
+
+.content {
+  border-top: 1px solid var(--paw-gray);
+  transition: all var(--transition-normal);
+}
+
+.contentInner {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Chart section */
+.chartSection {
+  background: color-mix(in srgb, var(--secondary) 10%, white);
+  border-radius: var(--border-radius-pet);
+  padding: 1.5rem;
+  border: 1px solid color-mix(in srgb, var(--secondary) 20%, white);
+}
+
+.chartTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tableContainer {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+.table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.tableHeader {
+  border-bottom: 2px solid color-mix(in srgb, var(--secondary) 30%, white);
+}
+
+.tableHeader th {
+  padding: 0.75rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.tableBody td {
+  padding: 0.75rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--secondary) 10%, white);
+}
+
+.tableDogAge {
+  font-weight: 500;
+}
+
+.tableHumanAge {
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.tableLifeStage {
+  color: var(--muted-text);
+}
+
+/* Breed section */
+
+
+
+.breedGrid {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .breedGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.breedCard {
+  text-align: center;
+}
+
+.breedEmoji {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.breedName {
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.25rem;
+}
+
+.breedLifespan {
+  font-size: 0.875rem;
+  color: var(--muted-text);
+}
+
+
+/* Research section */
+.researchSection {
+  background: color-mix(in srgb, var(--primary) 10%, white);
+  border-radius: var(--border-radius-pet);
+  padding: 1.5rem;
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, white);
+}
+
+.researchTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.researchText {
+  color: var(--muted-text);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.researchNote {
+  background: color-mix(in srgb, var(--primary) 10%, white);
+  border-radius: var(--border-radius-pet);
+  padding: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--primary);
+}
+
+.researchNote strong {
+  color: var(--primary);
+  font-weight: 600;
+}
