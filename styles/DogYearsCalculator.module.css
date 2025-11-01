@@ -8,19 +8,32 @@
 }
 /* DogYearsCalculator.module.css */
 .dogDetailsTitle{
-      font-size: 1.5rem;
+      font-size: 1.25rem;
     font-weight: bold;
     color: var(--foreground);
     margin-bottom: 1.5rem;
     font-family: var(--font-poppins);
 }
+
+@media (min-width: 768px) {
+  .dogDetailsTitle {
+    font-size: 1.5rem;
+  }
+}
+
 .calculator {
   background: var(--white);
   border-radius: var(--border-radius-pet);
   box-shadow: var(--shadow-pet);
-  padding: 2rem;
+  padding: 1rem;
   border: 1px solid var(--paw-gray);
   position: relative;
+}
+
+@media (min-width: 768px) {
+  .calculator {
+    padding: 2rem;
+  }
 }
 
 .confetti {
@@ -75,12 +88,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .ageControls {
+    gap: 1rem;
+  }
 }
 
 .ageButton {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: var(--border-radius-pet);
   background: color-mix(in srgb, var(--secondary) 20%, white);
   border: none;
@@ -89,9 +108,17 @@
   justify-content: center;
   color: var(--secondary);
   font-weight: bold;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   cursor: pointer;
   transition: all var(--transition-fast);
+}
+
+@media (min-width: 768px) {
+  .ageButton {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
+  }
 }
 
 .ageButton:hover:not(:disabled) {
@@ -108,10 +135,16 @@
 }
 
 .ageNumber {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
   color: var(--primary);
   margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .ageNumber {
+    font-size: 2.5rem;
+  }
 }
 
 .ageLabel {
@@ -121,7 +154,13 @@
 
 .sliderContainer {
   margin-top: 1.5rem;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .sliderContainer {
+    padding: 0 1rem;
+  }
 }
 
 .slider {
@@ -164,13 +203,20 @@
 .calculateButton {
   display: block;
   margin: 0 auto;
-  padding: 0.5rem 2rem;
+  padding: 0.75rem 1.5rem;
   border-radius: var(--border-radius-pet);
   font-weight: bold;
-  font-size: 1.125rem;
+  font-size: 1rem;
   transition: all var(--transition-fast);
   border: none;
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .calculateButton {
+    padding: 0.5rem 2rem;
+    font-size: 1.125rem;
+  }
 }
 
 .calculateButton:not(.disabled) {
@@ -202,10 +248,16 @@
 }
 
 .resultNumber {
-  font-size: 4.5rem;
+  font-size: 3rem;
   font-weight: bold;
   color: var(--secondary);
   margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .resultNumber {
+    font-size: 4.5rem;
+  }
 }
 
 .resultMessage {
@@ -530,13 +582,19 @@
 .resultCard {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
   border-radius: 20px;
-  padding: 2rem 4rem;
+  padding: 1.5rem 1rem;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.06);
   border: 2px solid transparent;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-    border-color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+@media (min-width: 768px) {
+  .resultCard {
+    padding: 2rem 4rem;
+  }
 }
 
 .resultCard::before {
@@ -572,7 +630,7 @@
 }
 
 .dogName {
-  font-size: 1.5rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--foreground);
   margin-bottom: 0.25rem;
@@ -582,29 +640,54 @@
   background-clip: text;
 }
 
+@media (min-width: 768px) {
+  .dogName {
+    font-size: 1.5rem;
+  }
+}
+
 .dogDetails {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   color: var(--muted-text);
   font-weight: 500;
 }
 
+@media (min-width: 768px) {
+  .dogDetails {
+    font-size: 0.95rem;
+  }
+}
+
 .resultNumber {
   text-align: center;
-    display: flex;
-margin-bottom:0;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  margin-bottom:0;
+  align-items: center;
+  gap: 0.75rem;
   position: relative;
   justify-content: center;
 }
 
+@media (min-width: 768px) {
+  .resultNumber {
+    gap: 1rem;
+  }
+}
+
 .animatedNumber {
-  font-size: 4rem;
+  font-size: 2.5rem;
   font-weight: 700;
   background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
-width: 100px;
+  width: 80px;
   display: inline-block;
   position: relative;
+}
+
+@media (min-width: 768px) {
+  .animatedNumber {
+    font-size: 4rem;
+    width: 100px;
+  }
 }
 
 
@@ -702,7 +785,13 @@ width: 100px;
   gap: 1rem;
   align-items: end;
 }
+@media (max-width: 768px) {
+.detailsRow {
 
+  grid-template-columns: 1fr;
+
+}
+}
 .fieldGroup {
   display: flex;
   flex-direction: column;

@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "check-unused-css": "node scripts/check-unused-css.js",
+    "analyze-images": "node scripts/analyze-images.js",
+    "convert-to-webp": "node scripts/convert-to-webp.js",
     "vite:dev": "vite",
     "vite:build": "vite build",
     "vite:preview": "vite preview",
