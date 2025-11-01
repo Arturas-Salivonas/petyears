@@ -87,13 +87,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable} antialiased`}>
+    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <head>
-        <link rel="dns-prefetch" href="//images.unsplash.com" />
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
-        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
-        <link rel="preload" href="/images/logos/logo-petyears-new.webp" as="image" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        {/* Inline critical CSS for above-the-fold content */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          *,*::before,*::after{box-sizing:border-box}
+          html{line-height:1.5;-webkit-text-size-adjust:100%}
+          body{margin:0;font-family:var(--font-inter);color:#2E2E2E;background:rgb(147 204 110/30%);font-size:1rem;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+          a{text-decoration:none}
+          .antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+        ` }} />
       </head>
       <body>
         <Layout>

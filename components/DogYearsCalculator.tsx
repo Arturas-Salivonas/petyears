@@ -1,7 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
+import { useMotionValue, useSpring, useTransform } from 'framer-motion';
 import ShareButton from './ShareButton';
 import styles from '../styles/DogYearsCalculator.module.css';
 

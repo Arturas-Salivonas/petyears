@@ -30,15 +30,46 @@ const nextConfig: NextConfig = {
   // Additional optimizations
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
-      config.optimization.splitChunks.cacheGroups = {
-        ...config.optimization.splitChunks.cacheGroups,
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all',
-          priority: 10,
+      // Better code splitting
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        cacheGroups: {
+          default: false,
+          vendors: false,
+          // Vendor chunk
+          vendor: {
+            name: 'vendors',
+            chunks: 'all',
+            test: /node_modules/,
+            priority: 20,
+          },
+          // Framework chunk (React, Next.js)
+          framework: {
+            name: 'framework',
+            chunks: 'all',
+            test: /[\\/]node_modules[\\/](react|react-dom|scheduler|next)[\\/]/,
+            priority: 30,
+            enforce: true,
+          },
+          // Framer Motion separate chunk
+          motion: {
+            name: 'framer-motion',
+            chunks: 'all',
+            test: /[\\/]node_modules[\\/](framer-motion)[\\/]/,
+            priority: 25,
+            enforce: true,
+          },
+          // Commons chunk
+          commons: {
+            name: 'commons',
+            minChunks: 2,
+            priority: 10,
+          },
         },
       };
+
+      // Minimize bundle size
+      config.optimization.minimize = true;
     }
     return config;
   },
@@ -62,8 +93,9 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      // Cache static assets for 1 year
       {
-        source: '/static/(.*)',
+        source: '/_next/static/:path*',
         headers: [
           {
             key: 'Cache-Control',
@@ -71,12 +103,23 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      // Cache images for 1 year with stale-while-revalidate
       {
-        source: '/images/(.*)',
+        source: '/images/:path*',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=86400, stale-while-revalidate=604800',
+            value: 'public, max-age=31536000, stale-while-revalidate=86400',
+          },
+        ],
+      },
+      // Cache other static files
+      {
+        source: '/:path*.{jpg,jpeg,png,gif,webp,svg,ico}',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, stale-while-revalidate=86400',
           },
         ],
       },

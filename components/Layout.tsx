@@ -11,6 +11,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showBackground, setShowBackground] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -19,6 +20,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };
+
+  // Show background pattern after mount (client-side only)
+  useEffect(() => {
+    setShowBackground(true);
+  }, []);
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -34,23 +40,24 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <div className={styles.layout}>
-      {/* Subtle pet pattern background */}
-      <div className={styles.backgroundPattern}>
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="petPattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
-              <image href="/images/dog-bg-pattern.svg" width="40" height="40" x="10" y="10" opacity="0.13"/>
-              <image href="/images/dog-bg-pattern.svg" width="35" height="35" x="80" y="60" opacity="0"/>
-              <image href="/images/dog-bg-pattern.svg" width="45" height="45" x="140" y="30" opacity="0.15"/>
-              <image href="/images/dog-bg-pattern.svg" width="38" height="38" x="40" y="120" opacity="0.04"/>
-              <image href="/images/dog-bg-pattern.svg" width="42" height="42" x="110" y="150" opacity="0.17"/>
-              <image href="/images/dog-bg-pattern.svg" width="36" height="36" x="170" y="90" opacity="0.03"/>
-
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#petPattern)" />
-        </svg>
-      </div>
+      {/* Background pattern - loaded after mount to avoid hydration issues */}
+      {showBackground && (
+        <div className={styles.backgroundPattern}>
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="petPattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+                <image href="/images/dog-bg-pattern.svg" width="40" height="40" x="10" y="10" opacity="0.13"/>
+                <image href="/images/dog-bg-pattern.svg" width="35" height="35" x="80" y="60" opacity="0"/>
+                <image href="/images/dog-bg-pattern.svg" width="45" height="45" x="140" y="30" opacity="0.15"/>
+                <image href="/images/dog-bg-pattern.svg" width="38" height="38" x="40" y="120" opacity="0.04"/>
+                <image href="/images/dog-bg-pattern.svg" width="42" height="42" x="110" y="150" opacity="0.17"/>
+                <image href="/images/dog-bg-pattern.svg" width="36" height="36" x="170" y="90" opacity="0.03"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#petPattern)" />
+          </svg>
+        </div>
+      )}
       <header className={styles.header}>
         <div className={styles.headerContainer}>
           <Link href="/" className={styles.logo} onClick={closeMobileMenu}>
