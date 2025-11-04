@@ -1,4 +1,13 @@
 import StaticPage from '../../components/StaticPage';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy - PetYears.net',
+  description: 'Our privacy policy explains how we protect your data when using PetYears.net.',
+  alternates: {
+    canonical: 'https://petyears.net/privacy',
+  },
+};
 
 export default function Privacy() {
   return (

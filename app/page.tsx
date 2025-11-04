@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     images: ['/og-image.jpg'],
   },
   alternates: {
-    canonical: '/',
+    canonical: 'https://petyears.net/',
   },
 };
 

@@ -7,6 +7,9 @@ import styles from '../../styles/BlogPage.module.css';
 export const metadata: Metadata = {
   title: 'Blog - PetYears.net',
   description: 'Learn about pet aging, care tips, and the science behind our age calculators.',
+  alternates: {
+    canonical: 'https://petyears.net/blog',
+  },
 };
 
 export default async function Blog() {

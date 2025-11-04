@@ -1,6 +1,15 @@
 import Link from 'next/link';
 import { getSortedPostsData } from '../../lib/posts';
 import StaticPage from '../../components/StaticPage';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Sitemap - PetYears.net',
+  description: 'Complete sitemap of all pages on PetYears.net.',
+  alternates: {
+    canonical: 'https://petyears.net/sitemap',
+  },
+};
 
 export default async function Sitemap() {
   const posts = await getSortedPostsData();

@@ -48,6 +48,9 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
         description: post.description,
         images: [`/og/${post.slug}.png`],
       },
+      alternates: {
+        canonical: `https://petyears.net/blog/${post.slug}`,
+      },
     };
   } catch {
     return {

@@ -1,0 +1,11 @@
+# Netlify Redirects Configuration
+# Force HTTPS and non-www canonical domain
+
+# Redirect www to non-www (HTTPS)
+https://www.petyears.net/* https://petyears.net/:splat 301!
+
+# Redirect HTTP to HTTPS (www)
+http://www.petyears.net/* https://petyears.net/:splat 301!
+
+# Redirect HTTP to HTTPS (non-www)
+http://petyears.net/* https://petyears.net/:splat 301!

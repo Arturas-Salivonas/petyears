@@ -16,6 +16,13 @@ PetYears.net is a simple, informative, SEO-optimized web app that helps users co
 
 ## 🚀 Recent Improvements
 
+### SEO & Google Search Console Fixes (v2.1)
+- ✅ Absolute canonical URLs for all pages
+- ✅ Redirect configurations for all hosting platforms
+- ✅ HTTP→HTTPS and www→non-www redirects
+- ✅ Proper metadata with full URLs
+- ✅ Search engine indexing optimization
+
 ### Mobile Responsiveness (v2.0)
 - ✅ Functional hamburger menu with slide-in drawer
 - ✅ Optimized layouts for all screen sizes (320px+)
@@ -30,7 +37,7 @@ PetYears.net is a simple, informative, SEO-optimized web app that helps users co
 - ✅ Proper caching headers
 - ✅ Reduced initial page load time
 
-See [MOBILE_IMPROVEMENTS.md](.github/MOBILE_IMPROVEMENTS.md) for detailed changes.
+See documentation in `.github/` for detailed changes.
 
 ## 🛠️ Getting Started
 
@@ -57,6 +64,7 @@ npm run start           # Start production server
 npm run lint            # Run ESLint
 npm run analyze-images  # Analyze image sizes and optimization opportunities
 npm run check-unused-css # Find unused CSS rules
+./test-redirects.ps1    # Test redirect configuration (PowerShell)
 ```
 
 ## 🏗️ Build for Production
@@ -138,6 +146,7 @@ No environment variables required for basic functionality.
 
 ## 📚 Documentation
 
+- [SEO Fixes & Redirect Configuration](.github/SEO_FIXES.md) ⭐ **New**
 - [Mobile Improvements Guide](.github/MOBILE_IMPROVEMENTS.md)
 - [Performance Optimizations](.github/PERFORMANCE_OPTIMIZATIONS.md)
 

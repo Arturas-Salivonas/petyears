@@ -1,4 +1,13 @@
 import StaticPage from '../../components/StaticPage';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'About - PetYears.net',
+  description: 'Learn about PetYears.net and our mission to help pet owners understand their pet\'s age.',
+  alternates: {
+    canonical: 'https://petyears.net/about',
+  },
+};
 
 export default function About() {
   return (

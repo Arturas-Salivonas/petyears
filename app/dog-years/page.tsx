@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     images: ['/og/dog-years-calculator.jpg'],
   },
   alternates: {
-    canonical: '/dog-years',
+    canonical: 'https://petyears.net/dog-years',
   },
 };
 
