@@ -1,16 +1,15 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "out",
+  "trailingSlash": false,
   "redirects": [
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "has": [
         {
           "type": "host",
           "value": "www.petyears.net"
         }
       ],
-      "destination": "https://petyears.net/$1",
+      "destination": "https://petyears.net/:path*",
       "permanent": true
     }
   ],
